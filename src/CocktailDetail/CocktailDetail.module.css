@@ -1,0 +1,10 @@
+.detailBody {
+	margin: 2rem;
+}
+
+.imgContainer {
+	padding: 2rem;
+	display: flex;
+	justify-content: center;
+	max-height: 50rem;
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "scaffold",
+  "steps": [
+    {
+      "file": "package.json",
+      "description": "## Versioni\r\nnode Version -> 14.15.1\r\nnpm Version -> 6.14.8\r\n\r\n## Formattazione\r\n\r\n* Installato solo prettier giusto per avere una formattazione decente\r\n* Ho scelto di non avere i punti e virgola ma mi adeguo\r\n",
+      "line": 1
+    },
+    {
+      "file": "package.json",
+      "description": "Material UI scelto per limitare le scelte grafiche",
+      "line": 6
+    },
+    {
+      "file": "package.json",
+      "description": "Installato Axios per consumare le API a backend.\r\n\r\nAggiunta libreria i18n per l'internazionalizzazione",
+      "line": 10
+    }
+  ],
+  "ref": "master"
+}
