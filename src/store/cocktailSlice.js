@@ -8,7 +8,6 @@ const cocktailSlice = createSlice({
 	reducers: {
 		storeCocktail(state, action) {
 			const newCocktail = action.payload
-			console.log("asd", action.payload)
 			const existingCocktail = state.items.find(
 				(cocktail) => cocktail.idDrink === newCocktail.idDrink
 			)
