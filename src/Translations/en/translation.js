@@ -1,6 +1,7 @@
 export const TRANSLATIONS_EN = {
 	// Home
 	start: "Start",
+	toggle_language: "change language",
 
 	// Search
 	search_label: "Search",

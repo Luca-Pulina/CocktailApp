@@ -1,3 +1,4 @@
+import { useSelector} from "react-redux"
 // Material
 import Card from "@material-ui/core/Card"
 import CardActionArea from "@material-ui/core/CardActionArea"
@@ -17,6 +18,7 @@ import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 
 const CardCocktail = ({ cocktail }) => {
+	const { settedLang } = useSelector((state) => state.language)
 	const { t } = useTranslation()
 
 	return (
@@ -37,7 +39,7 @@ const CardCocktail = ({ cocktail }) => {
 						component="p"
 						noWrap={true}
 					>
-						{cocktail.strInstructions}
+						{settedLang === "en" ? cocktail.strInstructions : cocktail.strInstructionsIT}
 					</Typography>
 				</CardContent>
 			</CardActionArea>
