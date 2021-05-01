@@ -9,7 +9,6 @@ const AppRouter = () => (
 	<BrowserRouter>
 		<CssBaseline />
 		<Header />
-
 		<Switch>
 			<Route path="/" component={Home} exact={true} />
 			<Route path="/search" component={SearchArea} />

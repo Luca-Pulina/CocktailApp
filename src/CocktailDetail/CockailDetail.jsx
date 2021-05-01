@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react"
 import { getCocktailById } from "../Services/getCocktails"
+import { useDispatch } from "react-redux"
+import { cocktailActions } from "../store/cocktailSlice"
 
 // Material
 import Grid from "@material-ui/core/Grid"
 import Paper from "@material-ui/core/Paper"
 import IconButton from "@material-ui/core/IconButton"
 import SearchIcon from "@material-ui/icons/Search"
+import SaveIcon from "@material-ui/icons/Save"
+import CircularProgress from "@material-ui/core/CircularProgress"
 
 // Style
 import styles from "./CocktailDetail.module.css"
@@ -13,17 +16,30 @@ import styles from "./CocktailDetail.module.css"
 // Router
 import { Link } from "react-router-dom"
 
-const CocktailDetail = (props) => {
-	const [cocktail, setCocktail] = useState({})
-	const { id } = props.match.params
+// React-Query
+import { useQuery } from "react-query"
 
-	useEffect(() => {
-		const fetchData = async () => {
-			const result = await getCocktailById(id)
-			setCocktail(result.drinks[0])
-		}
-		fetchData()
-	}, [id])
+const CocktailDetail = (props) => {
+	const { id } = props.match.params
+	const dispatch = useDispatch()
+	let cocktail = null
+
+	const { isLoading, isError, data } = useQuery("cocktails", () =>
+		getCocktailById(id)
+	)
+
+	const handleSaveCocktail = () => {
+		cocktail && dispatch(cocktailActions.storeCocktail(cocktail))
+	}
+
+	if (isLoading)
+		return (
+			<div className={styles.loading}>
+				<CircularProgress size={150} />
+			</div>
+		)
+	if (isError) return <h1>Error !</h1>
+	if (data) cocktail = data.drinks[0]
 
 	return (
 		<div className={styles.detailBody}>
@@ -41,6 +57,16 @@ const CocktailDetail = (props) => {
 								</IconButton>
 							</Link>
 						</span>
+						<span className={styles.searchButton}>
+							<IconButton
+								aria-label="SaveIcon"
+								color="primary"
+								fontSize="large"
+								onClick={handleSaveCocktail}
+							>
+								<SaveIcon />
+							</IconButton>
+						</span>
 
 						<Paper variant="outlined" className={styles.imgContainer}>
 							<img
@@ -56,7 +82,7 @@ const CocktailDetail = (props) => {
 								{Object.keys(cocktail).map((keyName, keyIndex) => {
 									if (cocktail[keyName] !== null)
 										return (
-											<li>
+											<li key={keyName}>
 												<p>
 													<b>{keyName}</b> : {cocktail[keyName]}
 												</p>
