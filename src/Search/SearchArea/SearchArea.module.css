@@ -10,15 +10,6 @@
 	justify-content: center;
 }
 
-.card {
-	width: 345px;
-	margin: 5px;
-}
-
-.media {
-	height: 140px;
-}
-
 .loading {
 	display: flex;
 	justify-content: center;

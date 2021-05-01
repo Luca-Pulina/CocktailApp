@@ -4,9 +4,14 @@ import { getCocktailById } from "../Services/getCocktails"
 // Material
 import Grid from "@material-ui/core/Grid"
 import Paper from "@material-ui/core/Paper"
+import IconButton from "@material-ui/core/IconButton"
+import SearchIcon from "@material-ui/icons/Search"
 
 // Style
 import styles from "./CocktailDetail.module.css"
+
+// Router
+import { Link } from "react-router-dom"
 
 const CocktailDetail = (props) => {
 	const [cocktail, setCocktail] = useState({})
@@ -25,6 +30,18 @@ const CocktailDetail = (props) => {
 			{cocktail && (
 				<Grid container spacing={1}>
 					<Grid item xs={12} sm={12} md={8} lg={8} xl={8}>
+						<span className={styles.searchButton}>
+							<Link to={{ pathname: `/search` }}>
+								<IconButton
+									aria-label="search"
+									color="primary"
+									fontSize="large"
+								>
+									<SearchIcon />
+								</IconButton>
+							</Link>
+						</span>
+
 						<Paper variant="outlined" className={styles.imgContainer}>
 							<img
 								src={cocktail.strDrinkThumb}

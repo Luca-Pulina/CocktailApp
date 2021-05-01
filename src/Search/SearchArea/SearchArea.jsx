@@ -1,15 +1,10 @@
 import { useEffect, useState, useCallback } from "react"
+import CardCocktail from "../CardCocktail/CardCocktail"
 
 // Material
-import { Container, Typography } from "@material-ui/core"
+import { Container } from "@material-ui/core"
 import Grid from "@material-ui/core/Grid"
-import Card from "@material-ui/core/Card"
 import CircularProgress from "@material-ui/core/CircularProgress"
-import CardActionArea from "@material-ui/core/CardActionArea"
-import CardActions from "@material-ui/core/CardActions"
-import CardContent from "@material-ui/core/CardContent"
-import CardMedia from "@material-ui/core/CardMedia"
-import Button from "@material-ui/core/Button"
 import Paper from "@material-ui/core/Paper"
 import TextField from "@material-ui/core/TextField"
 
@@ -23,9 +18,6 @@ import "../../Translations/i18n"
 
 //lodash
 import _ from "lodash"
-
-// Router
-import { Link } from "react-router-dom"
 
 const SearchArea = () => {
 	const { t } = useTranslation()
@@ -76,7 +68,11 @@ const SearchArea = () => {
 			)}
 
 			<Grid container spacing={3}>
-				{cocktails === null && !loading && <h2>{t("No drinks")}</h2>}
+				{cocktails === null && !loading && (
+					<Container maxWidth="md">
+						<h2>{t("no_drinks")}</h2>
+					</Container>
+				)}
 				{cocktails &&
 					!loading &&
 					cocktails.map((cocktail) => {
@@ -91,39 +87,7 @@ const SearchArea = () => {
 								lg={4}
 								xl={3}
 							>
-								<Card className={styles.card}>
-									<CardActionArea>
-										<CardMedia
-											className={styles.media}
-											image={cocktail.strDrinkThumb}
-											title={cocktail.strDrink}
-										/>
-										<CardContent>
-											<Typography gutterBottom variant="h5" component="h2">
-												{cocktail.strDrink}
-											</Typography>
-											<Typography
-												variant="body2"
-												color="textSecondary"
-												component="p"
-												noWrap={true}
-											>
-												{cocktail.strInstructions}
-											</Typography>
-										</CardContent>
-									</CardActionArea>
-									<CardActions>
-										<Button size="small" color="primary">
-											<Link
-												to={{
-													pathname: `/cocktail/${cocktail.idDrink}`,
-												}}
-											>
-												{t("learn_more")}
-											</Link>
-										</Button>
-									</CardActions>
-								</Card>
+								<CardCocktail cocktail={cocktail} />
 							</Grid>
 						)
 					})}

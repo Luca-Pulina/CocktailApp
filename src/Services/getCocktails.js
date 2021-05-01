@@ -7,7 +7,6 @@ export const getAllCocktails = async () => {
 		const { data } = await axios.get(`/search.php?s=`)
 		return data
 	} catch (error) {
-		// No time for beauty :-)
 		console.log(error)
 	}
 }
@@ -17,7 +16,6 @@ export const getCocktailByName = async (name) => {
 		const { data } = await axios.get(`/search.php?s=${name}`)
 		return data
 	} catch (error) {
-		// No time for beauty :-)
 		console.log(error)
 	}
 }
@@ -27,7 +25,6 @@ export const getCocktailById = async (id) => {
 		const { data } = await axios.get(`/lookup.php?i=${id}`)
 		return data
 	} catch (error) {
-		// No time for beauty :-)
 		console.log(error)
 	}
 }

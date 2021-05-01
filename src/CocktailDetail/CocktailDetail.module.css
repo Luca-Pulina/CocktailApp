@@ -8,3 +8,11 @@
 	justify-content: center;
 	max-height: 50rem;
 }
+
+.searchButton {
+	padding: 1rem;
+	border-radius: 50%;
+	background: #fff;
+	border: 1px solid;
+	margin: 1rem;
+}
