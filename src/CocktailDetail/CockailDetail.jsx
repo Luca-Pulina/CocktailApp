@@ -1,7 +1,7 @@
 import { getCocktailById } from "../Services/getCocktails"
 import { useDispatch } from "react-redux"
 import { cocktailActions } from "../store/cocktailSlice"
-import MiniNav from './MiniNav'
+import MiniNav from "./MiniNav"
 
 // Material
 import Grid from "@material-ui/core/Grid"
@@ -54,7 +54,7 @@ const CocktailDetail = (props) => {
 					<Grid item xs={12} sm={12} md={8} lg={8} xl={8}>
 						<Paper variant="outlined">
 							<ul>
-								{Object.keys(cocktail).map((keyName, keyIndex) => {
+								{Object.keys(cocktail).map((keyName) => {
 									if (cocktail[keyName] !== null)
 										return (
 											<li key={keyName}>

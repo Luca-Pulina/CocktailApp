@@ -1,0 +1,73 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "First Tour",
+  "steps": [
+    {
+      "file": "package.json",
+      "description": "La App è stata creata banalmente con create-react-app\r\n\r\nAggiunto Prettier per formattare un minimo il codice. Unico Script aggiunto è **format**:\r\n\r\n- `npm run format`\r\n\r\n",
+      "line": 27,
+      "selection": {
+        "start": {
+          "line": 13,
+          "character": 6
+        },
+        "end": {
+          "line": 13,
+          "character": 13
+        }
+      }
+    },
+    {
+      "file": "src/Translations/i18n.js",
+      "description": "Il multi lingua è un dettaglio superfluo a prima vista, tuttavia in un'app che cresce è molto comodo avere i testi in un posto invece che sparsi per l'app.\r\n\r\nInoltre grazie ad un toggle sfrutto redux (...più avanti nel Tour)",
+      "line": 23
+    },
+    {
+      "file": "src/.prettierrc",
+      "description": "Come regole per prettier ho lasciato tutto standard (es. doppie virgolette ovunque) tranne per Tabs e punti e virgola (;) tolti ovunque come nel JS moderno",
+      "line": 2
+    },
+    {
+      "file": "package.json",
+      "description": "### Translations :\r\n* Tutti i file per il multilingua\r\n### Layout\r\n* Qui tutti i componenti che si ripetono ovunque. Dato che l'app è molto semplce c'è solo un componente `Header.jsx`.\r\n### Services\r\n* Ci sono i file per \"parlare\" con l'esterno, in questo caso le API.\r\n### Store \r\n* Nella pratica Redux è gestito qui (slices + store stesso). In app più complesse ci sarebbero anche file di Action.\r\n### .env\r\nClassici file di environment, in questo caso ho lasciato solo il basePath per le chiamate REST\r\n### Componenti\r\nLe altre Directories sono divise per dominio. In linea di massima una Cartella per route.\r\n\r\n* `Home`\r\n* `Search`\r\n* `CocktailDetail`\r\n\r\nLo stile è diviso dal componente :\r\n```\r\ndir\r\n|___component.jsx\r\n|___component.module.css\r\n```\r\n",
+      "line": 54,
+      "selection": {
+        "start": {
+          "line": 13,
+          "character": 6
+        },
+        "end": {
+          "line": 13,
+          "character": 13
+        }
+      },
+      "title": "Sruttura"
+    },
+    {
+      "file": "src/index.js",
+      "description": "* Inizializzato lo Store. Serve davvero a niente in questa App ma lo scopo è didattico/test.\r\n* Inizializzato anche React-Query per la gestione dei Side effect (Thunk era davvero eccessivo).",
+      "line": 19
+    },
+    {
+      "file": "src/AppRouter.js",
+      "description": "* Definite le route principali grazie a `react-router-dom`",
+      "line": 17
+    },
+    {
+      "file": "src/AppRouter.js",
+      "description": "\t\r\nQuesto componente applica normalizzazione al CSS (Normalize.css) Per tutti i componenti figli, qundi è stato messo qui.\r\n\r\n```javascript\r\n    <CssBaseline />\r\n```",
+      "line": 10,
+      "selection": {
+        "start": {
+          "line": 10,
+          "character": 2
+        },
+        "end": {
+          "line": 10,
+          "character": 18
+        }
+      }
+    }
+  ],
+  "ref": "main"
+}

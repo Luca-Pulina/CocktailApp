@@ -1,4 +1,4 @@
-import { useSelector} from "react-redux"
+import { useSelector } from "react-redux"
 // Material
 import Card from "@material-ui/core/Card"
 import CardActionArea from "@material-ui/core/CardActionArea"
@@ -39,7 +39,9 @@ const CardCocktail = ({ cocktail }) => {
 						component="p"
 						noWrap={true}
 					>
-						{settedLang === "en" ? cocktail.strInstructions : cocktail.strInstructionsIT}
+						{settedLang === "en"
+							? cocktail.strInstructions
+							: cocktail.strInstructionsIT}
 					</Typography>
 				</CardContent>
 			</CardActionArea>
