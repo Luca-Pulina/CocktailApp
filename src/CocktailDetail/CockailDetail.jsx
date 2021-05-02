@@ -1,20 +1,16 @@
 import { getCocktailById } from "../Services/getCocktails"
 import { useDispatch } from "react-redux"
 import { cocktailActions } from "../store/cocktailSlice"
+import MiniNav from './MiniNav'
 
 // Material
 import Grid from "@material-ui/core/Grid"
 import Paper from "@material-ui/core/Paper"
-import IconButton from "@material-ui/core/IconButton"
-import SearchIcon from "@material-ui/icons/Search"
-import SaveIcon from "@material-ui/icons/Save"
+
 import CircularProgress from "@material-ui/core/CircularProgress"
 
 // Style
 import styles from "./CocktailDetail.module.css"
-
-// Router
-import { Link } from "react-router-dom"
 
 // React-Query
 import { useQuery } from "react-query"
@@ -46,28 +42,7 @@ const CocktailDetail = (props) => {
 			{cocktail && (
 				<Grid container spacing={1}>
 					<Grid item xs={12} sm={12} md={8} lg={8} xl={8}>
-						<span className={styles.searchButton}>
-							<Link to={{ pathname: `/search` }}>
-								<IconButton
-									aria-label="search"
-									color="primary"
-									fontSize="large"
-								>
-									<SearchIcon />
-								</IconButton>
-							</Link>
-						</span>
-						<span className={styles.searchButton}>
-							<IconButton
-								aria-label="SaveIcon"
-								color="primary"
-								fontSize="large"
-								onClick={handleSaveCocktail}
-							>
-								<SaveIcon />
-							</IconButton>
-						</span>
-
+						<MiniNav saveCocktail={handleSaveCocktail} />
 						<Paper variant="outlined" className={styles.imgContainer}>
 							<img
 								src={cocktail.strDrinkThumb}

@@ -2,6 +2,10 @@
 	margin: 2rem;
 }
 
+.miniNav {
+	margin: 1rem;
+}
+
 .imgContainer {
 	padding: 2rem;
 	display: flex;
